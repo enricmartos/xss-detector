@@ -1,2 +1,2 @@
-# xss-detector
+# request-validator
 
