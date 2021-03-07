@@ -1,7 +1,7 @@
-package org.emartos.requestvalidator.model.mapper.jackson;
+package org.emartos.requestvalidator.web.mappers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.emartos.requestvalidator.web.deserializer.XssStringToEmptyModule;
+import org.emartos.requestvalidator.web.deserializers.XssStringToEmptyModule;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +16,6 @@ public class CustomObjectMapper extends ObjectMapper {
     public CustomObjectMapper() {
         super();
 
-        // Add XSS String to EMPTY deserializer
         final XssStringToEmptyModule xssStringToEmptyModule = new XssStringToEmptyModule();
         this.registerModule(xssStringToEmptyModule);
     }

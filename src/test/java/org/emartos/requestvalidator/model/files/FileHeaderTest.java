@@ -1,64 +1,66 @@
-package org.emartos.requestvalidator.model;
+package org.emartos.requestvalidator.model.files;
 
-import org.emartos.requestvalidator.model.mother.FileMother;
-import org.junit.Test;
+import org.emartos.requestvalidator.configuration.PropertyResolver;
+import org.emartos.requestvalidator.model.files.mother.FileMother;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
+@SpringBootTest
 public class FileHeaderTest {
-    private static final String[] allowedMediaTypes = new String[] {MimeType.JPG.value(),
-            MimeType.PNG.value(), MimeType.PDF.value(), MimeType.WORD.value(),
-            MimeType.OPEN_WORD.value(), MimeType.EXCEL.value(), MimeType.OPEN_EXCEL.value()};
+    @Autowired
+    private PropertyResolver propertyResolver;
 
     // HAPPY PATH TESTS
     @Test
     public void givenJPGImageAndJPGMimeTypeIsAllowedThenFileHeaderIsValidReturnsTrue() {
         byte[] jpgImage = FileMother.jpgImage();
 
-        assertTrue(FileHeader.isValid(jpgImage, allowedMediaTypes));
+        Assertions.assertTrue(FileHeader.isValid(jpgImage, propertyResolver.getAllowedMediaTypes()));
     }
 
     @Test
     public void givenPNGImageAndPNGMimeTypeIsAllowedThenFileHeaderIsValidReturnsTrue() {
         byte[] pngImage = FileMother.pngImage();
 
-        assertTrue(FileHeader.isValid(pngImage, allowedMediaTypes));
+        Assertions.assertTrue(FileHeader.isValid(pngImage, propertyResolver.getAllowedMediaTypes()));
     }
 
     @Test
     public void givenPDFDocumentAndPDFMimeTypeIsAllowedThenFileHeaderIsValidReturnsTrue() {
         byte[] pdfDocument = FileMother.pdfDocument();
 
-        assertTrue(FileHeader.isValid(pdfDocument, allowedMediaTypes));
+        Assertions.assertTrue(FileHeader.isValid(pdfDocument, propertyResolver.getAllowedMediaTypes()));
     }
 
     @Test
     public void givenDOCDocumentAndDOCMimeTypeIsAllowedThenFileHeaderIsValidReturnsTrue() {
         byte[] docDocument = FileMother.docDocument();
 
-        assertTrue(FileHeader.isValid(docDocument, allowedMediaTypes));
+        Assertions.assertTrue(FileHeader.isValid(docDocument, propertyResolver.getAllowedMediaTypes()));
     }
 
     @Test
     public void givenDOCXDocumentAndDocMimeTypeIsAllowedThenFileHeaderIsValidReturnsTrue() {
         byte[] docxDocument = FileMother.docxDocument();
 
-        assertTrue(FileHeader.isValid(docxDocument, allowedMediaTypes));
+        Assertions.assertTrue(FileHeader.isValid(docxDocument, propertyResolver.getAllowedMediaTypes()));
     }
 
     @Test
     public void givenXLSDocumentAndXLSMimeTypeIsAllowedThenFileHeaderIsValidReturnsTrue() {
         byte[] xlsDocument = FileMother.xlsDocument();
 
-        assertTrue(FileHeader.isValid(xlsDocument, allowedMediaTypes));
+        Assertions.assertTrue(FileHeader.isValid(xlsDocument, propertyResolver.getAllowedMediaTypes()));
     }
 
     @Test
     public void givenXLSXDocumentAndXLSXMimeTypeIsAllowedThenFileHeaderIsValidReturnsTrue() {
         byte[] xlsxDocument = FileMother.xlsxDocument();
 
-        assertTrue(FileHeader.isValid(xlsxDocument, allowedMediaTypes));
+        Assertions.assertTrue(FileHeader.isValid(xlsxDocument, propertyResolver.getAllowedMediaTypes()));
     }
 
     // CORNER CASES TESTS
@@ -66,14 +68,14 @@ public class FileHeaderTest {
     public void givenGIFImageAndGIFMimeTypeIsNotAllowedThenFileHeaderIsValidReturnsFalse() {
         byte[] gifImage = FileMother.gifImage();
 
-        assertFalse(FileHeader.isValid(gifImage, allowedMediaTypes));
+        Assertions.assertFalse(FileHeader.isValid(gifImage, propertyResolver.getAllowedMediaTypes()));
     }
 
     @Test
     public void givenHTMLDocumentAndHTMLMimeTypeIsNotAllowedThenFileHeaderIsValidReturnsFalse() {
         byte[] htmlDocument = FileMother.htmlDocument();
 
-        assertFalse(FileHeader.isValid(htmlDocument, allowedMediaTypes));
+        Assertions.assertFalse(FileHeader.isValid(htmlDocument, propertyResolver.getAllowedMediaTypes()));
     }
 
 }

@@ -1,4 +1,4 @@
-package org.emartos.requestvalidator.model;
+package org.emartos.requestvalidator.model.files;
 
 public class FileMetadata {
 

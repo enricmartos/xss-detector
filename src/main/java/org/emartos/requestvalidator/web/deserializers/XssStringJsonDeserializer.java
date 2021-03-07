@@ -1,12 +1,12 @@
-package org.emartos.requestvalidator.web.deserializer;
+package org.emartos.requestvalidator.web.deserializers;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import org.emartos.requestvalidator.model.exceptions.XssInjectionDetectedException;
-import org.emartos.requestvalidator.model.xss.XssProcessor;
-import org.emartos.requestvalidator.model.xss.XssProcessorImpl;
+import org.emartos.requestvalidator.service.xss.XssProcessor;
+import org.emartos.requestvalidator.service.xss.XssProcessorImpl;
 
 import java.io.IOException;
 

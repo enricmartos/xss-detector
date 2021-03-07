@@ -1,4 +1,4 @@
-package org.emartos.requestvalidator.model.xss;
+package org.emartos.requestvalidator.service.xss;
 
 public interface XssProcessor {
 

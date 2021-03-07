@@ -1,4 +1,4 @@
-package org.emartos.requestvalidator.model.mother;
+package org.emartos.requestvalidator.model.files.mother;
 
 import java.io.File;
 import java.io.IOException;

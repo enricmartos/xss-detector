@@ -1,7 +1,7 @@
-package org.emartos.requestvalidator.model;
+package org.emartos.requestvalidator.model.files;
 
 
-import org.emartos.requestvalidator.model.mapper.FileHeaderMapper;
+import org.emartos.requestvalidator.model.files.mappers.FileHeaderMapper;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -26,9 +26,7 @@ public enum FileHeader {
      * information
      *
      * @param file File byte array to be validated
-     *
      * @param allowedMimeTypes the possible mime types that the file can be
-     *
      * @return whether the file is valid or not
      */
     public static boolean isValid(byte[] file, String[] allowedMimeTypes) {

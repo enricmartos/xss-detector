@@ -1,8 +1,8 @@
-package org.emartos.requestvalidator.model.mapper;
+package org.emartos.requestvalidator.model.files.mappers;
 
 
-import org.emartos.requestvalidator.model.FileHeader;
-import org.emartos.requestvalidator.model.MimeType;
+import org.emartos.requestvalidator.model.files.FileHeader;
+import org.emartos.requestvalidator.model.files.MimeType;
 
 import java.util.Optional;
 

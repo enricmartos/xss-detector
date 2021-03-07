@@ -1,4 +1,4 @@
-package org.emartos.requestvalidator.web.deserializer;
+package org.emartos.requestvalidator.web.deserializers;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
