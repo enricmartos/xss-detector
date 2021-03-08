@@ -1,4 +1,4 @@
-package org.emartos.requestvalidator.configuration.properties;
+package org.emartos.requestvalidator.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

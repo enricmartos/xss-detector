@@ -1,6 +1,6 @@
 package org.emartos.requestvalidator.web.controllers;
 
-import org.emartos.requestvalidator.configuration.properties.PropertyResolver;
+import org.emartos.requestvalidator.configuration.PropertyResolver;
 import org.emartos.requestvalidator.model.exceptions.InvalidFileException;
 import org.emartos.requestvalidator.model.files.FileMetadata;
 import org.emartos.requestvalidator.service.files.FileProcessor;

@@ -1,6 +1,6 @@
 package org.emartos.requestvalidator.model.files;
 
-import org.emartos.requestvalidator.configuration.properties.PropertyResolver;
+import org.emartos.requestvalidator.configuration.PropertyResolver;
 import org.emartos.requestvalidator.model.files.mother.FileMother;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
