@@ -46,16 +46,13 @@ $ sh mvnw spring-boot:run
 
 ### With Swagger
 
-- Go to message-sender-controller endpoint on *http://localhost:8080/swagger-ui.html*
-- Execute the requests below and verify that the actual result matches the expected result.
-
-### Validate file-metadata
+#### Validate file-metadata
 - Go to 'validate file-metadata' endpoint on *http://localhost:8080/swagger-ui.html* 
 - Execute the request below and verify that the actual result matches the expected result.
 
 POST http://localhost:8080/api/v1/file-metadata/validate
 
-#### Scenario 1 (JSON with XSS injection)
+##### Scenario 1 (JSON with XSS injection)
 
 **Request Body**
 ```json
@@ -69,7 +66,7 @@ POST http://localhost:8080/api/v1/file-metadata/validate
 XSS injection during JSON deserialization
 ```
 
-#### Scenario 2 (JSON without XSS injection)
+##### Scenario 2 (JSON without XSS injection)
 
 **Request Body**:
 ```json
@@ -83,13 +80,13 @@ XSS injection during JSON deserialization
 No XSS injection during JSON deserialization
 ```
 
-### Validate file
+#### Validate file
 - Go to 'validate file' endpoint on *http://localhost:8080/swagger-ui.html* 
 - Execute the request below and verify that the actual result matches the expected result.
 
 POST http://localhost:8080/api/v1/file/validate
 
-#### Scenario 1 (File with not allowed media type)
+##### Scenario 1 (File with not allowed media type)
 
 **Multipart form-data Body**:
 ```json
@@ -100,7 +97,7 @@ file: Upload a file from your system with a media type different from the ones d
 The media type of the file is not allowed
 ```
 
-#### Scenario 2 (File with allowed media type)
+##### Scenario 2 (File with allowed media type)
 
 **Multipart form-data Body**:
 ```json
