@@ -68,14 +68,14 @@ XSS injection during JSON deserialization
 
 ##### Scenario 2 (JSON without XSS injection)
 
-**Request Body**:
+Request Body:
 ```json
 {
   "name": "test field",
   "description": "test field"
 }
 ```
-**Expected Response body**:
+Expected Response body:
 ```json
 No XSS injection during JSON deserialization
 ```
