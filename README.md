@@ -65,6 +65,10 @@ POST http://localhost:8080/api/v1/file-metadata/validate
 ```json
 XSS injection during JSON deserialization
 ```
+**Expected response code** 
+```json
+400
+```
 
 #### Scenario 2 (JSON without XSS injection)
 
@@ -78,6 +82,10 @@ XSS injection during JSON deserialization
 **Expected Response body**:
 ```json
 No XSS injection during JSON deserialization
+```
+**Expected response code** 
+```json
+200
 ```
 
 #### Validate file
@@ -96,6 +104,10 @@ file: Upload a file from your system with a media type different from the ones d
 ```json
 The media type of the file is not allowed
 ```
+**Expected response code** 
+```json
+400
+```
 
 #### Scenario 2 (File with allowed media type)
 
@@ -106,6 +118,10 @@ file: Upload a file from your system with a media type that matches one of defin
 **Expected Response body**:
 ```json
 The media type of the file is allowed
+```
+**Expected response code** 
+```json
+200
 ```
 
 
