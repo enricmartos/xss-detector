@@ -52,7 +52,7 @@ $ sh mvnw spring-boot:run
 
 POST http://localhost:8080/api/v1/file-metadata/validate
 
-##### Scenario 1 (JSON with XSS injection)
+#### Scenario 1 (JSON with XSS injection)
 
 **Request Body**
 ```json
@@ -66,16 +66,16 @@ POST http://localhost:8080/api/v1/file-metadata/validate
 XSS injection during JSON deserialization
 ```
 
-##### Scenario 2 (JSON without XSS injection)
+#### Scenario 2 (JSON without XSS injection)
 
-Request Body:
+**Request Body**:
 ```json
 {
   "name": "test field",
   "description": "test field"
 }
 ```
-Expected Response body:
+**Expected Response body**:
 ```json
 No XSS injection during JSON deserialization
 ```
@@ -86,7 +86,7 @@ No XSS injection during JSON deserialization
 
 POST http://localhost:8080/api/v1/file/validate
 
-##### Scenario 1 (File with not allowed media type)
+#### Scenario 1 (File with not allowed media type)
 
 **Multipart form-data Body**:
 ```json
@@ -97,7 +97,7 @@ file: Upload a file from your system with a media type different from the ones d
 The media type of the file is not allowed
 ```
 
-##### Scenario 2 (File with allowed media type)
+#### Scenario 2 (File with allowed media type)
 
 **Multipart form-data Body**:
 ```json
