@@ -3,9 +3,9 @@ package org.emartos.requestvalidator.model.exceptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 
-public class XssInjectionDetectedException extends JsonProcessingException {
+public class XssInjectionException extends JsonProcessingException {
 
-    public XssInjectionDetectedException(String message) {
+    public XssInjectionException(String message) {
         super(message);
     }
 

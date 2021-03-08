@@ -1,7 +1,7 @@
 package org.emartos.requestvalidator.web.handlers;
 
 import org.emartos.requestvalidator.model.exceptions.InvalidFileException;
-import org.emartos.requestvalidator.model.exceptions.XssInjectionDetectedException;
+import org.emartos.requestvalidator.model.exceptions.XssInjectionException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionHandlerController {
 
-    @ExceptionHandler(XssInjectionDetectedException.class)
-    private ResponseEntity<String> xssInjectionDetectedExceptionHandler(final XssInjectionDetectedException e) {
+    @ExceptionHandler(XssInjectionException.class)
+    private ResponseEntity<String> xssInjectionExceptionHandler(final XssInjectionException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 

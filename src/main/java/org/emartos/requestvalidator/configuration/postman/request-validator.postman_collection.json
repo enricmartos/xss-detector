@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "acfc246d-6cdb-4862-8abe-1f90f1aa60e9",
+		"name": "request validator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "validate filemetadata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Return expected response\", () => {",
+							"  const req = JSON.parse(pm.request.body.raw);",
+							"  const response = pm.response",
+							"  console.log(response);",
+							"",
+							"  if (req.name === \"no XSS name\" && req.description === \"no XSS description\") {",
+							"      pm.expect(response).to.eql(\"No XSS injection during JSON deserialization\");",
+							"  }",
+							"",
+							"  if (req.name === \"<script>alert('XSS Test')</script>Michael\" && req.description === \"onload='fooFunction()'Test\") {",
+							"      pm.expect(response).to.eql(\"XSS injection during JSON deserialization\");",
+							"  }",
+							"",
+							"  ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{xss_injection_sample}}\",\n    \"description\": \"{{xss_injection_sample}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{request_validator_domain}}/{{validate_file-metadata_endpoint}}",
+					"host": [
+						"{{request_validator_domain}}"
+					],
+					"path": [
+						"{{validate_file-metadata_endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/enricmartos/Downloads/ENG-APIsstyleguide-260221-1042-196.pdf"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{request_validator_domain}}/{{validate_file_endpoint}}",
+					"host": [
+						"{{request_validator_domain}}"
+					],
+					"path": [
+						"{{validate_file_endpoint}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
