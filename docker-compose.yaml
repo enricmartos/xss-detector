@@ -2,7 +2,7 @@ version: '3'
 
 services:
   java:
-    container_name: request_validator
+    container_name: xss_detector
     build:
       context: .
       dockerfile: Dockerfile
