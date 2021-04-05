@@ -1,4 +1,4 @@
-# request-validator
+# xss-detector
 
 ## Description
 
@@ -127,7 +127,7 @@ The media type of the file is allowed
 
 ### With Postman
 
-- Import [this](https://github.com/enricmartos/request-validator/blob/main/src/main/resources/postman/request-validator.postman_collection.json) collection and [this](https://github.com/enricmartos/request-validator/blob/main/src/main/resources/postman/request-validator.postman_environment.json) environment, which contains the requests, and the environment variables to validate the scenarios.
+- Import [this](https://github.com/enricmartos/xss-detector/blob/main/src/main/resources/postman/xss-detector.postman_collection.json) collection and [this](https://github.com/enricmartos/xss-detector/blob/main/src/main/resources/postman/xss-detector.postman_environment.json) environment, which contains the requests, and the environment variables to validate the scenarios.
 - Execute the 'validate file-metadata' request switching from 'xss_sample' to 'no_xss_sample' env vars
 - Execute the 'validate file' request uploading a file from your system
 
